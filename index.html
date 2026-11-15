@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>H²OS — Human Health Operating System</title>
+  <meta name="description"
+    content="H²OS is your personal Human Health Operating System — track nutrition, fitness, habits, and insights in one beautiful dashboard." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M14 2C7.373 2 2 7.373 2 14s5.373 12 12 12 12-5.373 12-12S20.627 2 14 2z" fill="url(#logoGrad)" />
+          <path d="M9 14h2.5l2-5 3 10 2-7H21" stroke="white" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <defs>
+            <linearGradient id="logoGrad" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#34d399" />
+              <stop offset="1" stop-color="#059669" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">H²OS</span>
+        <span class="logo-sub">Health OS</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" data-page="dashboard" id="nav-dashboard">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+            <path d="M14 17h7M17 14v7" />
+          </svg>
+        </span>
+        <span class="nav-label">Dashboard</span>
+        <span class="nav-badge">3</span>
+      </a>
+      <a href="#" class="nav-item" data-page="nutrition" id="nav-nutrition">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a8 8 0 0 1 8 8c0 5.4-5.4 10-8 12C9.4 20 4 15.4 4 10a8 8 0 0 1 8-8z" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+        </span>
+        <span class="nav-label">Nutrition</span>
+      </a>
+      <a href="#" class="nav-item" data-page="habits" id="nav-habits">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4" />
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+          </svg>
+        </span>
+        <span class="nav-label">Habits</span>
+      </a>
+      <a href="#" class="nav-item" data-page="fitness" id="nav-fitness">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+            <line x1="6" y1="1" x2="6" y2="4" />
+            <line x1="10" y1="1" x2="10" y2="4" />
+            <line x1="14" y1="1" x2="14" y2="4" />
+          </svg>
+        </span>
+        <span class="nav-label">Fitness</span>
+      </a>
+      <a href="#" class="nav-item" data-page="insights" id="nav-insights">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10" />
+            <line x1="12" y1="20" x2="12" y2="4" />
+            <line x1="6" y1="20" x2="6" y2="14" />
+          </svg>
+        </span>
+        <span class="nav-label">Insights</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="#" class="nav-item" data-page="profile" id="nav-profile">
+        <div class="profile-avatar">A</div>
+        <div class="profile-info">
+          <span class="profile-name">Alex Morgan</span>
+          <span class="profile-plan">Pro Plan</span>
+        </div>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="#" class="bottom-nav-item active" data-page="dashboard">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7" />
+        <rect x="14" y="3" width="7" height="7" />
+        <rect x="3" y="14" width="7" height="7" />
+        <path d="M14 17h7M17 14v7" />
+      </svg>
+      <span>Home</span>
+    </a>
+    <a href="#" class="bottom-nav-item" data-page="nutrition">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2a8 8 0 0 1 8 8c0 5.4-5.4 10-8 12C9.4 20 4 15.4 4 10a8 8 0 0 1 8-8z" />
+      </svg>
+      <span>Nutrition</span>
+    </a>
+    <a href="#" class="bottom-nav-item" data-page="fitness">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+        <line x1="6" y1="1" x2="6" y2="4" />
+        <line x1="10" y1="1" x2="10" y2="4" />
+      </svg>
+      <span>Fitness</span>
+    </a>
+    <a href="#" class="bottom-nav-item" data-page="insights">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10" />
+        <line x1="12" y1="20" x2="12" y2="4" />
+        <line x1="6" y1="20" x2="6" y2="14" />
+      </svg>
+      <span>Insights</span>
+    </a>
+    <a href="#" class="bottom-nav-item" data-page="profile">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </svg>
+      <span>Profile</span>
+    </a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content" id="mainContent">
+
+    <!-- ===== DASHBOARD PAGE ===== -->
+    <div class="page active" id="page-dashboard">
+      <div class="page-header">
+        <div>
+          <p class="greeting" id="greeting-text">Good morning</p>
+          <h1 class="page-title">Alex Morgan <span class="wave">👋</span></h1>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="notif-dot"></span>
+          </button>
+          <button class="icon-btn" aria-label="Settings">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Health Score Hero -->
+      <div class="health-score-card">
+        <div class="health-score-left">
+          <p class="health-score-label">Today's Health Score</p>
+          <div class="health-score-display">
+            <span class="health-score-number" id="healthScoreNum">0</span>
+            <span class="health-score-max">/100</span>
+          </div>
+          <div class="health-score-bar-wrap">
+            <div class="health-score-bar" id="healthBar"></div>
+          </div>
+          <p class="health-score-status">
+            <span class="status-dot green"></span>
+            Excellent — Keep it up!
+          </p>
+        </div>
+        <div class="health-score-right">
+          <canvas id="healthRingCanvas" width="160" height="160"></canvas>
+        </div>
+      </div>
+
+      <!-- Daily Summary -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Daily Summary</h2>
+          <span class="section-date" id="todayDate"></span>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-card" id="dash-cal-card">
+            <div class="summary-icon calories">🔥</div>
+            <div class="summary-info">
+              <span class="summary-value" id="dashCalVal">—</span>
+              <span class="summary-label">Calories</span>
+              <div class="summary-progress-wrap">
+                <div class="summary-progress" id="dashCalBar" style="width:0%;background:var(--orange)"></div>
+              </div>
+              <span class="summary-meta" id="dashCalMeta">Loading...</span>
+            </div>
+          </div>
+          <div class="summary-card" id="dash-protein-card">
+            <div class="summary-icon protein">💪</div>
+            <div class="summary-info">
+              <span class="summary-value" id="dashProtVal">—</span>
+              <span class="summary-label">Protein</span>
+              <div class="summary-progress-wrap">
+                <div class="summary-progress" id="dashProtBar" style="width:0%;background:var(--red)"></div>
+              </div>
+              <span class="summary-meta" id="dashProtMeta">Loading...</span>
+            </div>
+          </div>
+          <div class="summary-card" id="water-card">
+            <div class="summary-icon water">💧</div>
+            <div class="summary-info">
+              <span class="summary-value" id="dashWaterVal">—</span>
+              <span class="summary-label">Water</span>
+              <div class="summary-progress-wrap">
+                <div class="summary-progress" id="dashWaterBar" style="width:0%;background:var(--blue)"></div>
+              </div>
+              <span class="summary-meta" id="dashWaterMeta">Loading...</span>
+            </div>
+          </div>
+          <div class="summary-card" id="steps-card">
+            <div class="summary-icon steps">🚶</div>
+            <div class="summary-info">
+              <span class="summary-value" id="dashStepsVal">—</span>
+              <span class="summary-label">Steps</span>
+              <div class="summary-progress-wrap">
+                <div class="summary-progress" id="dashStepsBar" style="width:0%;background:var(--green)"></div>
+              </div>
+              <span class="summary-meta" id="dashStepsMeta">Loading...</span>
+            </div>
+          </div>
+          <div class="summary-card" id="dash-sleep-card">
+            <div class="summary-icon sleep">😴</div>
+            <div class="summary-info">
+              <span class="summary-value" id="dashSleepVal">—</span>
+              <span class="summary-label">Sleep</span>
+              <div class="summary-progress-wrap">
+                <div class="summary-progress" id="dashSleepBar" style="width:0%;background:var(--indigo)"></div>
+              </div>
+              <span class="summary-meta" id="dashSleepMeta">Loading...</span>
+            </div>
+          </div>
+          <div class="summary-card" id="dash-habits-card">
+            <div class="summary-icon heart">✅</div>
+            <div class="summary-info">
+              <span class="summary-value" id="dashHabitsVal">—</span>
+              <span class="summary-label">Habits</span>
+              <div class="summary-progress-wrap">
+                <div class="summary-progress" id="dashHabitsBar" style="width:0%;background:var(--green)"></div>
+              </div>
+              <span class="summary-meta" id="dashHabitsMeta">Loading...</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Alerts -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">⚡ Active Alerts</h2>
+          <button class="text-btn">Dismiss all</button>
+        </div>
+        <div class="alerts-list">
+          <div class="alert-item alert-warning">
+            <div class="alert-icon">⚠️</div>
+            <div class="alert-content">
+              <p class="alert-title" id="dashInsightTitle">Low Protein Intake</p>
+              <p class="alert-desc" id="dashInsightText">You're 82g short of your 150g daily protein goal. Add a protein-rich meal.</p>
+            </div>
+            <button class="alert-action" onclick="switchPage('nutrition')">Fix</button>
+          </div>
+          <div class="alert-item alert-danger" id="envAlertCard">
+            <div class="alert-icon" id="envAlertIcon">🌫️</div>
+            <div class="alert-content">
+              <p class="alert-title" id="envAlertTitle">High Outdoor Pollution</p>
+              <p class="alert-desc"  id="envAlertDesc">AQI is 158 (Unhealthy). Avoid outdoor exercise. Consider an indoor workout.</p>
+            </div>
+            <button class="alert-action" onclick="switchPage('fitness')">Plan</button>
+          </div>
+          <div class="alert-item alert-info">
+            <div class="alert-icon">💧</div>
+            <div class="alert-content">
+              <p class="alert-title">Hydration Reminder</p>
+              <p class="alert-desc">You haven't logged water in 2 hours. Aim to drink 300ml now.</p>
+            </div>
+            <button class="alert-action">Log</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Actions -->
+      <section class="section">
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="quick-actions">
+          <button class="quick-action-btn" onclick="switchPage('nutrition')" id="btn-add-meal">
+            <span class="qa-icon">🍎</span>
+            <span>Add Meal</span>
+          </button>
+          <button class="quick-action-btn" onclick="switchPage('fitness')" id="btn-view-plan">
+            <span class="qa-icon">🏋️</span>
+            <span>View Plan</span>
+          </button>
+          <button class="quick-action-btn" onclick="switchPage('habits')" id="btn-log-habit">
+            <span class="qa-icon">✅</span>
+            <span>Log Habit</span>
+          </button>
+          <button class="quick-action-btn" onclick="switchPage('insights')" id="btn-insights">
+            <span class="qa-icon">📊</span>
+            <span>Insights</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Weekly Trend Chart -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Weekly Overview</h2>
+          <div class="chart-toggle">
+            <button class="chart-tab active" data-metric="calories">Calories</button>
+            <button class="chart-tab" data-metric="steps">Steps</button>
+            <button class="chart-tab" data-metric="sleep">Sleep</button>
+          </div>
+        </div>
+        <div class="chart-card">
+          <canvas id="weeklyChart" height="180"></canvas>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== NUTRITION PAGE ===== -->
+    <div class="page" id="page-nutrition">
+      <div class="page-header">
+        <div>
+          <p class="greeting">Today's Nutrition</p>
+          <h1 class="page-title">Meal Tracker</h1>
+        </div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <button id="btnDemoReset" onclick="demoReset()" style="
+            background: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--text2);
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex; align-items: center; gap: 5px;
+            transition: var(--transition);
+          " onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'"
+             onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">
+            🔄 Reset Demo
+          </button>
+          <button class="primary-btn" id="btn-add-meal-main" onclick="openModal('addMealModal')">+ Add Meal</button>
+        </div>
+      </div>
+
+      <!-- Nutrition Score Banner -->
+      <div class="nutr-score-banner">
+        <div class="nsb-left">
+          <p class="nsb-label">Nutrition Score</p>
+          <div class="nsb-score-row">
+            <span class="nsb-score">72</span>
+            <span class="nsb-max">/100</span>
+            <span class="nsb-badge warn">Needs Attention</span>
+          </div>
+          <p class="nsb-hint">Protein is dragging your score down today.</p>
+        </div>
+        <div class="nsb-right">
+          <div class="nsb-circle-track">
+            <svg viewBox="0 0 80 80" width="80" height="80">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="8" />
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#fbbf24" stroke-width="8" stroke-dasharray="201"
+                stroke-dashoffset="56" stroke-linecap="round" transform="rotate(-90 40 40)" />
+            </svg>
+            <div class="nsb-circle-val">72%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Three Macro Stat Cards -->
+      <div class="nutr-macro-cards">
+        <div class="nmc-card calories">
+          <div class="nmc-icon">🔥</div>
+          <div class="nmc-info">
+            <span class="nmc-val">1,840</span>
+            <span class="nmc-unit">kcal</span>
+          </div>
+          <div class="nmc-label">Calories</div>
+          <div class="nmc-bar-wrap">
+            <div class="nmc-bar" style="width:73%;background:var(--orange)"></div>
+          </div>
+          <div class="nmc-meta">73% of 2,500 goal</div>
+        </div>
+        <div class="nmc-card protein low">
+          <div class="nmc-icon">💪</div>
+          <div class="nmc-info">
+            <span class="nmc-val">68</span>
+            <span class="nmc-unit">g</span>
+          </div>
+          <div class="nmc-label">Protein</div>
+          <div class="nmc-bar-wrap">
+            <div class="nmc-bar" style="width:45%;background:var(--red)"></div>
+          </div>
+          <div class="nmc-meta low">45% of 150g — Low ⚠️</div>
+        </div>
+        <div class="nmc-card carbs">
+          <div class="nmc-icon">🌾</div>
+          <div class="nmc-info">
+            <span class="nmc-val">210</span>
+            <span class="nmc-unit">g</span>
+          </div>
+          <div class="nmc-label">Carbs</div>
+          <div class="nmc-bar-wrap">
+            <div class="nmc-bar" style="width:75%;background:var(--orange)"></div>
+          </div>
+          <div class="nmc-meta">75% of 280g goal</div>
+        </div>
+      </div>
+
+      <!-- Macro Detail Ring + Bars -->
+      <div class="macro-overview">
+        <div class="macro-ring-card">
+          <canvas id="macroDonut" width="140" height="140"></canvas>
+          <div class="macro-ring-center">
+            <span class="macro-cal-num">1,840</span>
+            <span class="macro-cal-label">kcal</span>
+          </div>
+        </div>
+        <div class="macro-bars">
+          <div class="macro-bar-item">
+            <div class="macro-bar-header">
+              <span class="macro-name">🌾 Carbs</span>
+              <span class="macro-val">210g <span class="macro-goal">/ 280g</span></span>
+            </div>
+            <div class="macro-bar-track">
+              <div class="macro-bar-fill" style="width:75%;background:var(--orange)"></div>
+            </div>
+          </div>
+          <div class="macro-bar-item">
+            <div class="macro-bar-header">
+              <span class="macro-name">💪 Protein</span>
+              <span class="macro-val">68g <span class="macro-goal">/ 150g</span></span>
+            </div>
+            <div class="macro-bar-track">
+              <div class="macro-bar-fill" style="width:45%;background:var(--red)"></div>
+            </div>
+          </div>
+          <div class="macro-bar-item">
+            <div class="macro-bar-header">
+              <span class="macro-name">🥑 Fats</span>
+              <span class="macro-val">58g <span class="macro-goal">/ 78g</span></span>
+            </div>
+            <div class="macro-bar-track">
+              <div class="macro-bar-fill" style="width:74%;background:var(--yellow)"></div>
+            </div>
+          </div>
+          <div class="macro-bar-item">
+            <div class="macro-bar-header">
+              <span class="macro-name">🌿 Fiber</span>
+              <span class="macro-val">18g <span class="macro-goal">/ 30g</span></span>
+            </div>
+            <div class="macro-bar-track">
+              <div class="macro-bar-fill" style="width:60%;background:var(--green)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smart Suggestions Card -->
+      <div class="smart-suggest-card">
+        <div class="ss-header">
+          <div class="ss-title-row">
+            <span class="ss-ai-badge">🤖 AI</span>
+            <h3 class="ss-title">Smart Suggestions</h3>
+          </div>
+          <span class="ss-subtitle">Best next meal based on today's intake</span>
+        </div>
+        <div class="ss-meal-recommend">
+          <div class="ss-meal-icon">🥗</div>
+          <div class="ss-meal-info">
+            <p class="ss-meal-name">High-Protein Dinner Bowl</p>
+            <p class="ss-meal-desc">Grilled salmon · Brown rice · Edamame · Spinach</p>
+            <div class="ss-meal-macros">
+              <span class="ss-macro cal">🔥 520 kcal</span>
+              <span class="ss-macro prot">💪 42g protein</span>
+              <span class="ss-macro carb">🌾 54g carbs</span>
+            </div>
+          </div>
+          <button class="ss-add-btn" onclick="openModal('addMealModal')">+ Log</button>
+        </div>
+        <div class="ss-alternatives">
+          <p class="ss-alt-label">Other options:</p>
+          <div class="ss-alt-chips">
+            <button class="ss-chip" onclick="openModal('addMealModal')">🍳 Egg &amp; Avocado Toast</button>
+            <button class="ss-chip" onclick="openModal('addMealModal')">🥛 Protein Shake</button>
+            <button class="ss-chip" onclick="openModal('addMealModal')">🍗 Chicken &amp; Veggies</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meal Log -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Today's Meals</h2>
+          <button class="text-btn" onclick="openModal('addMealModal')">+ Add</button>
+        </div>
+        <div class="meal-list" id="mealLogList">
+          <div class="meal-card" data-meal-id="0">
+            <div class="meal-card-header">
+              <div class="meal-time-badge">🌅 Breakfast · 7:30 AM</div>
+              <button class="meal-delete-btn" onclick="nutritionRemoveMeal(this)" title="Remove meal">✕</button>
+            </div>
+            <div class="meal-items">
+              <div class="meal-item">
+                <span class="meal-item-name">Oatmeal with berries</span>
+                <div class="meal-item-macros">
+                  <span class="mim-cal">320 kcal</span>
+                  <span class="mim-chip prot">8g P</span>
+                  <span class="mim-chip carb">58g C</span>
+                </div>
+              </div>
+              <div class="meal-item">
+                <span class="meal-item-name">Greek yogurt (150g)</span>
+                <div class="meal-item-macros">
+                  <span class="mim-cal">130 kcal</span>
+                  <span class="mim-chip prot">14g P</span>
+                  <span class="mim-chip carb">9g C</span>
+                </div>
+              </div>
+            </div>
+            <div class="meal-footer">
+              <div class="meal-foot-macros">
+                <span class="mfm-item">🔥 450 kcal</span>
+                <span class="mfm-item">💪 22g</span>
+                <span class="mfm-item">🌾 67g</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="meal-card" data-meal-id="1">
+            <div class="meal-card-header">
+              <div class="meal-time-badge">☀️ Lunch · 1:00 PM</div>
+              <button class="meal-delete-btn" onclick="nutritionRemoveMeal(this)" title="Remove meal">✕</button>
+            </div>
+            <div class="meal-items">
+              <div class="meal-item">
+                <span class="meal-item-name">Grilled chicken salad</span>
+                <div class="meal-item-macros">
+                  <span class="mim-cal">480 kcal</span>
+                  <span class="mim-chip prot">38g P</span>
+                  <span class="mim-chip carb">12g C</span>
+                </div>
+              </div>
+              <div class="meal-item">
+                <span class="meal-item-name">Whole wheat bread (2 slices)</span>
+                <div class="meal-item-macros">
+                  <span class="mim-cal">160 kcal</span>
+                  <span class="mim-chip prot">6g P</span>
+                  <span class="mim-chip carb">30g C</span>
+                </div>
+              </div>
+            </div>
+            <div class="meal-footer">
+              <div class="meal-foot-macros">
+                <span class="mfm-item">🔥 640 kcal</span>
+                <span class="mfm-item">💪 44g</span>
+                <span class="mfm-item">🌾 42g</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="meal-card" data-meal-id="2">
+            <div class="meal-card-header">
+              <div class="meal-time-badge">🌆 Dinner · 7:00 PM</div>
+              <button class="meal-delete-btn" onclick="nutritionRemoveMeal(this)" title="Remove meal">✕</button>
+            </div>
+            <div class="meal-items">
+              <div class="meal-item">
+                <span class="meal-item-name">Salmon fillet (200g)</span>
+                <div class="meal-item-macros">
+                  <span class="mim-cal">520 kcal</span>
+                  <span class="mim-chip prot">40g P</span>
+                  <span class="mim-chip carb">0g C</span>
+                </div>
+              </div>
+              <div class="meal-item">
+                <span class="meal-item-name">Steamed broccoli (150g)</span>
+                <div class="meal-item-macros">
+                  <span class="mim-cal">80 kcal</span>
+                  <span class="mim-chip prot">5g P</span>
+                  <span class="mim-chip carb">11g C</span>
+                </div>
+              </div>
+            </div>
+            <div class="meal-footer">
+              <div class="meal-foot-macros">
+                <span class="mfm-item">🔥 600 kcal</span>
+                <span class="mfm-item">💪 45g</span>
+                <span class="mfm-item">🌾 11g</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="meal-card meal-add-card" id="addMealCard" onclick="openModal('addMealModal')">
+            <div class="meal-add-inner">
+              <div class="meal-add-icon-wrap">+</div>
+              <div>
+                <p class="meal-add-title">Log a meal or snack</p>
+                <p class="meal-add-sub">Manual entry or pick from suggestions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recommendations -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">📋 Recommendations</h2>
+          <span class="reco-count">3 active</span>
+        </div>
+        <div class="reco-list">
+          <div class="reco-card reco-warn">
+            <div class="reco-left">
+              <div class="reco-icon-wrap warn">⚡</div>
+              <div class="reco-body">
+                <p class="reco-title">Increase Protein Intake</p>
+                <p class="reco-desc">You're 82g below your 150g daily goal. Add chicken, eggs, or whey to your next
+                  meal.</p>
+              </div>
+            </div>
+            <button class="reco-act-btn" onclick="openModal('addMealModal')">Fix Now</button>
+          </div>
+          <div class="reco-card reco-red">
+            <div class="reco-left">
+              <div class="reco-icon-wrap red">🚫</div>
+              <div class="reco-body">
+                <p class="reco-title">Reduce Fried Foods</p>
+                <p class="reco-desc">3 fried items logged this week. Swap for grilled, baked, or steamed options to cut
+                  200+ kcal.</p>
+              </div>
+            </div>
+            <button class="reco-act-btn">Learn More</button>
+          </div>
+          <div class="reco-card reco-blue">
+            <div class="reco-left">
+              <div class="reco-icon-wrap blue">💧</div>
+              <div class="reco-body">
+                <p class="reco-title">Drink More Water</p>
+                <p class="reco-desc">You've had 1.6L today. Aim for 2.5L. Sip 300ml every 2 hours to stay hydrated.</p>
+              </div>
+            </div>
+            <button class="reco-act-btn">Log Water</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Smart Tips -->
+      <section class="section">
+        <h2 class="section-title">💡 Quick Tips</h2>
+        <div class="tips-grid">
+          <div class="tip-card tip-warn">
+            <p class="tip-icon">🥩</p>
+            <p class="tip-text">Add a protein shake or chicken breast to hit your protein goal today.</p>
+          </div>
+          <div class="tip-card tip-good">
+            <p class="tip-icon">🥦</p>
+            <p class="tip-text">Your fiber intake is on track! Great job with vegetables today.</p>
+          </div>
+        </div>
+      </section>
+
+      
+    </div>
+
+    <!-- ===== HABITS PAGE ===== -->
+    <div class="page" id="page-habits">
+      <div class="page-header">
+        <div>
+          <p class="greeting">Build consistency</p>
+          <h1 class="page-title">Daily Habits</h1>
+        </div>
+        <button class="primary-btn" id="btn-add-habit">+ Add Habit</button>
+      </div>
+
+      <!-- Streak Banner -->
+      <div class="streak-banner">
+        <div class="streak-fire">🔥</div>
+        <div class="streak-info">
+          <p class="streak-num">14 Day Streak</p>
+          <p class="streak-label">You're on a roll! Don't break the chain.</p>
+        </div>
+        <div class="streak-circles">
+          <div class="streak-day done">M</div>
+          <div class="streak-day done">T</div>
+          <div class="streak-day done">W</div>
+          <div class="streak-day done">T</div>
+          <div class="streak-day done">F</div>
+          <div class="streak-day active">S</div>
+          <div class="streak-day">S</div>
+        </div>
+      </div>
+
+      <!-- Habits -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Today's Habits</h2>
+          <span class="habit-progress-label" id="habitProgressLabel">4 / 7 done</span>
+        </div>
+        <div class="habits-list" id="habitsList">
+          <div class="habit-item done" data-habit="0">
+            <div class="habit-check" onclick="toggleHabit(this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="habit-info">
+              <p class="habit-name">Morning Meditation</p>
+              <p class="habit-meta">10 min · 🧘 Mindfulness</p>
+            </div>
+            <span class="habit-streak">🔥 14</span>
+          </div>
+          <div class="habit-item done" data-habit="1">
+            <div class="habit-check" onclick="toggleHabit(this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="habit-info">
+              <p class="habit-name">Drink 2.5L Water</p>
+              <p class="habit-meta">Daily · 💧 Hydration</p>
+            </div>
+            <span class="habit-streak">🔥 21</span>
+          </div>
+          <div class="habit-item done" data-habit="2">
+            <div class="habit-check" onclick="toggleHabit(this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="habit-info">
+              <p class="habit-name">No Sugar After 6pm</p>
+              <p class="habit-meta">Evening · 🚫 Diet</p>
+            </div>
+            <span class="habit-streak">🔥 7</span>
+          </div>
+          <div class="habit-item done" data-habit="3">
+            <div class="habit-check" onclick="toggleHabit(this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="habit-info">
+              <p class="habit-name">10,000 Steps</p>
+              <p class="habit-meta">Daily · 🚶 Movement</p>
+            </div>
+            <span class="habit-streak">🔥 5</span>
+          </div>
+          <div class="habit-item" data-habit="4">
+            <div class="habit-check" onclick="toggleHabit(this)"></div>
+            <div class="habit-info">
+              <p class="habit-name">Read for 30 mins</p>
+              <p class="habit-meta">Evening · 📚 Learning</p>
+            </div>
+            <span class="habit-streak">🔥 3</span>
+          </div>
+          <div class="habit-item" data-habit="5">
+            <div class="habit-check" onclick="toggleHabit(this)"></div>
+            <div class="habit-info">
+              <p class="habit-name">Cold Shower</p>
+              <p class="habit-meta">Morning · 🚿 Recovery</p>
+            </div>
+            <span class="habit-streak">🔥 2</span>
+          </div>
+          <div class="habit-item" data-habit="6">
+            <div class="habit-check" onclick="toggleHabit(this)"></div>
+            <div class="habit-info">
+              <p class="habit-name">No Phone Before Bed</p>
+              <p class="habit-meta">Night · 📵 Sleep hygiene</p>
+            </div>
+            <span class="habit-streak">🔥 0</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WATER TRACKER ===== -->
+      <section class="section" id="waterTrackerSection">
+        <div class="section-header">
+          <h2 class="section-title">&#x1F4A7; Water Intake</h2>
+          <span class="summary-meta" id="waterGoalLabel">Goal: 2.5L</span>
+        </div>
+        <div class="water-tracker-card">
+          <div class="water-progress-row">
+            <div class="water-amount-display">
+              <span class="water-val" id="waterLoggedVal">0.0</span>
+              <span class="water-unit">L</span>
+            </div>
+            <div class="water-bar-wrap">
+              <div class="water-bar-track">
+                <div class="water-bar-fill" id="waterBarFill" style="width:0%"></div>
+              </div>
+              <span class="water-pct-label" id="waterPctLabel">0% of 2.5L</span>
+            </div>
+          </div>
+          <div class="water-btns">
+            <button class="water-add-btn" onclick="logWaterAmount(0.25)" id="btn-water-glass">+ Glass (250ml)</button>
+            <button class="water-add-btn" onclick="logWaterAmount(0.5)"  id="btn-water-bottle">+ Bottle (500ml)</button>
+            <button class="water-add-btn" onclick="logWaterAmount(1.0)"  id="btn-water-litre">+ 1 Litre</button>
+          </div>
+          <div class="water-custom-row">
+            <input type="number" id="waterCustomInput" class="water-custom-input"
+                   placeholder="Custom (L)" min="0" max="5" step="0.1" />
+            <button class="water-add-btn accent" onclick="logWaterCustom()" id="btn-water-custom">Add</button>
+          </div>
+          <p class="water-remaining-label" id="waterRemainingLabel">2.5L remaining</p>
+        </div>
+      </section>
+
+      <!-- ===== SLEEP TRACKER ===== -->
+      <section class="section" id="sleepTrackerSection">
+        <div class="section-header">
+          <h2 class="section-title">&#x1F634; Sleep</h2>
+          <span class="summary-meta" id="sleepGoalLabel">Goal: 8h</span>
+        </div>
+        <div class="sleep-tracker-card">
+          <div class="sleep-display-row">
+            <div class="sleep-hours-display">
+              <span class="sleep-val" id="sleepLoggedVal">0</span>
+              <span class="sleep-unit">h</span>
+            </div>
+            <span class="sleep-label-badge" id="sleepLabelBadge">Not logged</span>
+          </div>
+          <div class="sleep-slider-wrap">
+            <input type="range" id="sleepSlider" class="sleep-slider"
+                   min="0" max="12" step="0.5" value="0"
+                   oninput="updateSleepPreview(this.value)" />
+            <div class="sleep-slider-labels">
+              <span>0h</span><span>4h</span><span>8h</span><span>12h</span>
+            </div>
+          </div>
+          <div class="sleep-quick-btns">
+            <button class="sleep-q-btn" onclick="setSleepHours(6)" id="btn-sleep-6">6h</button>
+            <button class="sleep-q-btn" onclick="setSleepHours(7)" id="btn-sleep-7">7h</button>
+            <button class="sleep-q-btn" onclick="setSleepHours(8)" id="btn-sleep-8">8h</button>
+            <button class="sleep-q-btn" onclick="setSleepHours(9)" id="btn-sleep-9">9h</button>
+          </div>
+          <button class="primary-btn" style="width:100%;margin-top:12px" onclick="saveSleepLog()" id="btn-save-sleep">
+            Log Sleep
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== FITNESS PAGE ===== -->
+    <div class="page" id="page-fitness">
+      <div class="page-header">
+        <div>
+          <p class="greeting">Stay active</p>
+          <h1 class="page-title">Fitness Plan</h1>
+        </div>
+        <div class="fitness-aqi" id="fitnessAqiBadge">
+          <span class="aqi-label">AQI</span>
+          <span class="aqi-value danger" id="fitnessAqiVal">—</span>
+        </div>
+      </div>
+
+      <!-- Today's Workout -->
+      <div class="workout-hero">
+        <div class="workout-hero-top">
+          <div>
+            <p class="workout-day">Today · Sunday</p>
+            <h2 class="workout-name" id="fitnessWorkoutTitle">Upper Body Strength</h2>
+          </div>
+          <div class="workout-badges">
+            <span class="workout-badge" id="fitnessWorkoutTypeBadge">💪 Strength</span>
+            <span class="workout-badge indoor" id="fitnessModeBadge">🏠 Indoor</span>
+          </div>
+        </div>
+        <div class="workout-stats">
+          <div class="ws-item">
+            <span class="ws-val" id="fitnessDurationVal">45</span>
+            <span class="ws-label">Minutes</span>
+          </div>
+          <div class="ws-divider"></div>
+          <div class="ws-item">
+            <span class="ws-val" id="fitnessCaloriesVal">320</span>
+            <span class="ws-label">Est. Cal</span>
+          </div>
+          <div class="ws-divider"></div>
+          <div class="ws-item">
+            <span class="ws-val" id="fitnessExercisesVal">6</span>
+            <span class="ws-label">Exercises</span>
+          </div>
+        </div>
+        <button class="start-workout-btn" id="startWorkoutBtn">▶ Start Workout</button>
+      </div>
+
+      <!-- Exercise List -->
+      <section class="section">
+        <h2 class="section-title">Exercise Plan</h2>
+        <div class="exercise-list" id="fitnessExerciseList">
+          <div class="exercise-item">
+            <div class="exercise-num">01</div>
+            <div class="exercise-info">
+              <p class="exercise-name">Bench Press</p>
+              <p class="exercise-meta">4 sets × 10 reps · 60kg</p>
+            </div>
+            <span class="exercise-muscle">Chest</span>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">02</div>
+            <div class="exercise-info">
+              <p class="exercise-name">Pull-Ups</p>
+              <p class="exercise-meta">3 sets × 8 reps · Bodyweight</p>
+            </div>
+            <span class="exercise-muscle">Back</span>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">03</div>
+            <div class="exercise-info">
+              <p class="exercise-name">Shoulder Press</p>
+              <p class="exercise-meta">3 sets × 12 reps · 40kg</p>
+            </div>
+            <span class="exercise-muscle">Shoulders</span>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">04</div>
+            <div class="exercise-info">
+              <p class="exercise-name">Bicep Curls</p>
+              <p class="exercise-meta">3 sets × 15 reps · 15kg</p>
+            </div>
+            <span class="exercise-muscle">Arms</span>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">05</div>
+            <div class="exercise-info">
+              <p class="exercise-name">Tricep Dips</p>
+              <p class="exercise-meta">3 sets × 12 reps · Bodyweight</p>
+            </div>
+            <span class="exercise-muscle">Arms</span>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-num">06</div>
+            <div class="exercise-info">
+              <p class="exercise-name">Plank Hold</p>
+              <p class="exercise-meta">3 sets × 60 seconds</p>
+            </div>
+            <span class="exercise-muscle">Core</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Weekly Schedule -->
+      <section class="section">
+        <h2 class="section-title">Weekly Schedule</h2>
+        <div class="weekly-schedule">
+          <div class="schedule-day rest">
+            <span class="sd-day">Mon</span>
+            <span class="sd-type rest">Rest</span>
+          </div>
+          <div class="schedule-day">
+            <span class="sd-day">Tue</span>
+            <span class="sd-type">Legs</span>
+          </div>
+          <div class="schedule-day active">
+            <span class="sd-day">Wed</span>
+            <span class="sd-type">Upper</span>
+          </div>
+          <div class="schedule-day rest">
+            <span class="sd-day">Thu</span>
+            <span class="sd-type rest">Rest</span>
+          </div>
+          <div class="schedule-day">
+            <span class="sd-day">Fri</span>
+            <span class="sd-type">HIIT</span>
+          </div>
+          <div class="schedule-day">
+            <span class="sd-day">Sat</span>
+            <span class="sd-type">Cardio</span>
+          </div>
+          <div class="schedule-day today">
+            <span class="sd-day">Sun</span>
+            <span class="sd-type">Upper</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== INSIGHTS PAGE ===== -->
+    <div class="page" id="page-insights">
+      <div class="page-header">
+        <div>
+          <p class="greeting">Data-driven health</p>
+          <h1 class="page-title">Insights</h1>
+        </div>
+        <div class="period-toggle">
+          <button class="period-btn active" data-period="week">7D</button>
+          <button class="period-btn" data-period="month">30D</button>
+          <button class="period-btn" data-period="year">1Y</button>
+        </div>
+      </div>
+
+      <!-- Insight Cards -->
+      <div class="insights-summary">
+        <div class="insight-stat-card">
+          <p class="ist-label">Avg Calories</p>
+          <p class="ist-val" id="insAvgCalories">1,920</p>
+          <p class="ist-change up" id="insTrendCalories">↑ 4% vs last week</p>
+        </div>
+        <div class="insight-stat-card">
+          <p class="ist-label">Avg Steps</p>
+          <p class="ist-val" id="insAvgSteps">8,340</p>
+          <p class="ist-change up" id="insTrendSteps">↑ 12% vs last week</p>
+        </div>
+        <div class="insight-stat-card">
+          <p class="ist-label">Avg Sleep</p>
+          <p class="ist-val" id="insAvgSleep">7.1h</p>
+          <p class="ist-change down" id="insTrendSleep">↓ 5% vs last week</p>
+        </div>
+        <div class="insight-stat-card">
+          <p class="ist-label">Habit Rate</p>
+          <p class="ist-val" id="insHabitRate">71%</p>
+          <p class="ist-change up" id="insTrendHabits">↑ 8% vs last week</p>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <section class="section">
+        <h2 class="section-title">Body Metrics</h2>
+        <div class="chart-card">
+          <canvas id="bodyMetricsChart" height="200"></canvas>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Sleep Pattern</h2>
+        <div class="chart-card">
+          <canvas id="sleepChart" height="180"></canvas>
+        </div>
+      </section>
+
+      <!-- AI Insights -->
+      <section class="section">
+        <h2 class="section-title">🤖 AI Health Insights</h2>
+        <div class="ai-insights-list" id="insightsListContainer">
+          <div class="ai-insight-card">
+            <div class="ai-insight-header">
+              <span class="ai-tag good">Positive</span>
+              <span class="ai-date">Today</span>
+            </div>
+            <p class="ai-insight-text">Your step count has increased 12% this week. Consistent movement is linked to
+              improved cardiovascular health and energy levels.</p>
+          </div>
+          <div class="ai-insight-card">
+            <div class="ai-insight-header">
+              <span class="ai-tag warn">Attention</span>
+              <span class="ai-date">3 days pattern</span>
+            </div>
+            <p class="ai-insight-text">Protein intake has been below 70% of goal for 3 consecutive days. Consider adding
+              lean meats, eggs, or legumes to your meals.</p>
+          </div>
+          <div class="ai-insight-card">
+            <div class="ai-insight-header">
+              <span class="ai-tag info">Tip</span>
+              <span class="ai-date">Weekly analysis</span>
+            </div>
+            <p class="ai-insight-text">Sleep quality drops on days with screen time past 10pm. Your best sleep nights
+              correlate with your "No Phone Before Bed" habit.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== PROFILE PAGE ===== -->
+    <div class="page" id="page-profile">
+      <div class="page-header">
+        <div>
+          <p class="greeting">Manage your health</p>
+          <h1 class="page-title">Profile</h1>
+        </div>
+        <button class="secondary-btn" id="btn-edit-profile">Edit</button>
+      </div>
+
+      <!-- Profile Card -->
+      <div class="profile-hero">
+        <div class="profile-avatar-large">A</div>
+        <div class="profile-hero-info">
+          <h2 class="profile-hero-name">Alex Morgan</h2>
+          <p class="profile-hero-sub">alex.morgan@email.com</p>
+          <span class="profile-plan-badge">⭐ Pro Plan</span>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="profile-stats">
+        <div class="ps-item">
+          <span class="ps-val">28</span>
+          <span class="ps-label">Age</span>
+        </div>
+        <div class="ps-item">
+          <span class="ps-val">178cm</span>
+          <span class="ps-label">Height</span>
+        </div>
+        <div class="ps-item">
+          <span class="ps-val">74kg</span>
+          <span class="ps-label">Weight</span>
+        </div>
+        <div class="ps-item">
+          <span class="ps-val">22.3</span>
+          <span class="ps-label">BMI</span>
+        </div>
+      </div>
+
+      <!-- Goals -->
+      <section class="section">
+        <h2 class="section-title">Health Goals</h2>
+        <div class="goals-list">
+          <div class="goal-item">
+            <div class="goal-icon">🎯</div>
+            <div class="goal-info">
+              <p class="goal-name">Primary Goal</p>
+              <p class="goal-val">Muscle Gain</p>
+            </div>
+            <button class="text-btn">Change</button>
+          </div>
+          <div class="goal-item">
+            <div class="goal-icon">⚖️</div>
+            <div class="goal-info">
+              <p class="goal-name">Target Weight</p>
+              <p class="goal-val">79 kg</p>
+            </div>
+            <button class="text-btn">Edit</button>
+          </div>
+          <div class="goal-item">
+            <div class="goal-icon">🔥</div>
+            <div class="goal-info">
+              <p class="goal-name">Daily Calories</p>
+              <p class="goal-val">2,500 kcal</p>
+            </div>
+            <button class="text-btn">Edit</button>
+          </div>
+          <div class="goal-item">
+            <div class="goal-icon">🚶</div>
+            <div class="goal-info">
+              <p class="goal-name">Daily Steps</p>
+              <p class="goal-val">10,000 steps</p>
+            </div>
+            <button class="text-btn">Edit</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Settings -->
+      <section class="section">
+        <h2 class="section-title">Settings</h2>
+        <div class="settings-list">
+          <div class="setting-item">
+            <div class="setting-info">
+              <p class="setting-name">Notifications</p>
+              <p class="setting-desc">Meal and workout reminders</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked id="toggle-notif" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <div class="setting-info">
+              <p class="setting-name">Dark Mode</p>
+              <p class="setting-desc">Switch to dark theme</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggle-dark" onchange="toggleDarkMode(this)" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <div class="setting-info">
+              <p class="setting-name">AI Suggestions</p>
+              <p class="setting-desc">Personalized health tips</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked id="toggle-ai" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <div class="setting-info">
+              <p class="setting-name">Metric Units</p>
+              <p class="setting-desc">kg, cm, km</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked id="toggle-units" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Export Data Section -->
+      <section class="section">
+        <h2 class="section-title">Export Data</h2>
+        <div class="export-grid">
+          <div class="export-item">
+            <div class="export-icon">📊</div>
+            <div class="export-info">
+              <p class="export-name">Nutrition Data</p>
+              <p class="export-desc">Export meals and macros as CSV</p>
+            </div>
+            <button class="secondary-btn" onclick="exportNutritionData()">Export CSV</button>
+          </div>
+          <div class="export-item">
+            <div class="export-icon">✅</div>
+            <div class="export-info">
+              <p class="export-name">Habits Data</p>
+              <p class="export-desc">Export habit completion and streaks</p>
+            </div>
+            <button class="secondary-btn" onclick="exportHabitsData()">Export CSV</button>
+          </div>
+          <div class="export-item">
+            <div class="export-icon">📋</div>
+            <div class="export-info">
+              <p class="export-name">Health Report</p>
+              <p class="export-desc">Generate comprehensive health report</p>
+            </div>
+            <button class="secondary-btn" onclick="exportHealthReport()">Generate Report</button>
+          </div>
+        </div>
+      </section>
+
+      <button class="logout-btn" id="logoutBtn">Sign Out</button>
+    </div>
+
+  </main>
+
+  <!-- Add Meal Modal (Enhanced) -->
+  <div class="modal-overlay" id="addMealModal">
+    <div class="modal modal-wide">
+      <div class="modal-header">
+        <h2 class="modal-title">🍽️ Log a Meal</h2>
+        <button class="modal-close" onclick="closeModal('addMealModal')">✕</button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Meal Type -->
+        <div class="form-group">
+          <label class="form-label">Meal Type</label>
+          <div class="meal-type-selector" id="mealTypeSelector">
+            <button class="mts-btn active" data-type="Breakfast">🌅 Breakfast</button>
+            <button class="mts-btn" data-type="Lunch">☀️ Lunch</button>
+            <button class="mts-btn" data-type="Dinner">🌆 Dinner</button>
+            <button class="mts-btn" data-type="Snack">🍎 Snack</button>
+          </div>
+        </div>
+
+        <!-- Input Mode Toggle -->
+        <div class="modal-mode-toggle">
+          <button class="mode-tab active" id="modeManual" onclick="switchMealMode('manual')">✏️ Manual Entry</button>
+          <button class="mode-tab" id="modeQuick" onclick="switchMealMode('quick')">⚡ Quick Pick</button>
+          <button class="mode-tab" id="modeSmart" onclick="switchMealMode('smart')">📝 Smart Log</button>
+          <button class="mode-tab" id="modeCamera" onclick="switchMealMode('camera')">📷 Scan</button>
+        </div>
+
+        <!-- Camera Scan Panel -->
+        <div id="panelCamera" class="modal-panel" style="display:none">
+          <div class="camera-viewport" style="width: 100%; height: 200px; background: #000; border-radius: var(--radius-sm); overflow: hidden; position: relative; margin-bottom: 12px; display: flex; align-items: center; justify-content: center;">
+            <video id="cameraVideo" autoplay playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+            <div id="cameraScanningOverlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; flex-direction: column; align-items: center; justify-content: center; color: white;">
+              <span style="font-size: 24px; animation: spin 1s linear infinite;">🔄</span>
+              <p style="margin-top: 8px; font-size: 13px;">Analyzing food...</p>
+            </div>
+            <p id="cameraStatusText" style="position: absolute; color: white; opacity: 0.7; font-size: 12px; z-index: 10;">Initializing camera...</p>
+          </div>
+          <button class="secondary-btn" id="btnCaptureAnalyze" style="width:100%; margin-bottom: 12px; justify-content:center; background: var(--green); color: white;" onclick="captureAndAnalyzeFood()">📸 Capture & Analyze</button>
+          
+          <div id="cameraResultsArea" style="display:none; transition: var(--transition);">
+            <p class="quick-pick-label" style="margin-bottom: 8px;">We detected the following foods:</p>
+            <div id="cameraItemsList" style="display: flex; flex-direction: column; gap: 8px; background: var(--bg2); padding: 12px; border-radius: var(--radius-sm); margin-bottom: 16px;">
+              <!-- Generated item inputs will appear here -->
+            </div>
+          </div>
+          <!-- Hidden canvas for capturing frame -->
+          <canvas id="cameraCanvas" style="display:none;"></canvas>
+        </div>
+
+        <!-- Smart Log Panel -->
+        <div id="panelSmart" class="modal-panel" style="display:none">
+          <div class="form-group">
+            <label class="form-label" for="smartTextInput">Describe your meal:</label>
+            <textarea class="form-input" id="smartTextInput" rows="2" placeholder="e.g. 2 rotis, dal, and rice" style="resize:none;"></textarea>
+          </div>
+          <button class="secondary-btn" id="btnParseSmart" style="width:100%; margin-bottom: 16px; justify-content:center;" onclick="nutritionParseSmartMeal()">🔍 Parse Text</button>
+          
+          <div id="smartPreviewArea" style="display:none; transition: var(--transition);">
+            <p class="quick-pick-label" style="margin-bottom: 8px;">Detected Items (Review & Edit):</p>
+            <div id="smartItemsList" style="display: flex; flex-direction: column; gap: 8px; background: var(--bg2); padding: 12px; border-radius: var(--radius-sm); margin-bottom: 12px;">
+              <!-- Generated item inputs will appear here -->
+            </div>
+            <button class="secondary-btn" id="btnSmartAddItem" style="width:100%; margin-bottom: 16px; justify-content:center; font-size: 13px; padding: 6px; min-height: 32px;" onclick="smartLogAddEmptyItem()">➕ Add Missing Item</button>
+            <div class="macro-live-preview">
+              <div class="mlp-item"><span class="mlp-val" id="smartPrevCal">0</span><span class="mlp-label">kcal</span></div>
+              <div class="mlp-item"><span class="mlp-val" id="smartPrevProt">0</span><span class="mlp-label">protein</span></div>
+              <div class="mlp-item"><span class="mlp-val" id="smartPrevCarbs">0</span><span class="mlp-label">carbs</span></div>
+              <div class="mlp-item"><span class="mlp-val" id="smartPrevFats">0</span><span class="mlp-label">fats</span></div>
+            </div>
+            <input type="hidden" id="smartParsedData" value="" />
+          </div>
+        </div>
+
+        <!-- Manual Entry Panel -->
+        <div id="panelManual" class="modal-panel">
+          <div class="form-group">
+            <label class="form-label" for="foodSearch">Food Name</label>
+            <div class="search-wrap">
+              <input type="text" class="form-input" id="foodSearch"
+                placeholder="e.g. Grilled chicken, Apple, Oatmeal..." autocomplete="off" />
+              <span class="search-icon">🔍</span>
+            </div>
+          </div>
+          <div class="macro-entry-grid">
+            <div class="form-group macro-entry-item cal-entry">
+              <label class="form-label" for="mealCalories">🔥 Calories</label>
+              <input type="number" class="form-input" id="mealCalories" placeholder="kcal" min="0" />
+            </div>
+            <div class="form-group macro-entry-item">
+              <label class="form-label" for="mealProtein">💪 Protein (g)</label>
+              <input type="number" class="form-input" id="mealProtein" placeholder="0" min="0" />
+            </div>
+            <div class="form-group macro-entry-item">
+              <label class="form-label" for="mealCarbs">🌾 Carbs (g)</label>
+              <input type="number" class="form-input" id="mealCarbs" placeholder="0" min="0" />
+            </div>
+            <div class="form-group macro-entry-item">
+              <label class="form-label" for="mealFats">🥑 Fats (g)</label>
+              <input type="number" class="form-input" id="mealFats" placeholder="0" min="0" />
+            </div>
+          </div>
+          <!-- Live Preview -->
+          <div class="macro-live-preview" id="macroLivePreview">
+            <div class="mlp-item"><span class="mlp-val" id="previewCal">—</span><span class="mlp-label">kcal</span>
+            </div>
+            <div class="mlp-item"><span class="mlp-val" id="previewProt">—</span><span class="mlp-label">protein</span>
+            </div>
+            <div class="mlp-item"><span class="mlp-val" id="previewCarbs">—</span><span class="mlp-label">carbs</span>
+            </div>
+            <div class="mlp-item"><span class="mlp-val" id="previewFats">—</span><span class="mlp-label">fats</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Pick Panel -->
+        <div id="panelQuick" class="modal-panel" style="display:none">
+          <p class="quick-pick-label">Select from predefined foods:</p>
+          <div class="quick-pick-grid" id="quickPickGrid">
+            <div class="qp-item" onclick="selectQuickFood(this)" data-cal="320" data-prot="8" data-carbs="58"
+              data-fats="6">
+              <span class="qp-emoji">🥣</span>
+              <span class="qp-name">Oatmeal</span>
+              <span class="qp-cal">320 kcal</span>
+            </div>
+            <div class="qp-item" onclick="selectQuickFood(this)" data-cal="130" data-prot="14" data-carbs="9"
+              data-fats="1">
+              <span class="qp-emoji">🧁</span>
+              <span class="qp-name">Greek Yogurt</span>
+              <span class="qp-cal">130 kcal</span>
+            </div>
+            <div class="qp-item" onclick="selectQuickFood(this)" data-cal="480" data-prot="38" data-carbs="12"
+              data-fats="14">
+              <span class="qp-emoji">🥗</span>
+              <span class="qp-name">Chicken Salad</span>
+              <span class="qp-cal">480 kcal</span>
+            </div>
+            <div class="qp-item" onclick="selectQuickFood(this)" data-cal="520" data-prot="40" data-carbs="0"
+              data-fats="28">
+              <span class="qp-emoji">🐟</span>
+              <span class="qp-name">Salmon Fillet</span>
+              <span class="qp-cal">520 kcal</span>
+            </div>
+            <div class="qp-item" onclick="selectQuickFood(this)" data-cal="250" data-prot="25" data-carbs="2"
+              data-fats="15">
+              <span class="qp-emoji">🥚</span>
+              <span class="qp-name">Eggs (3)</span>
+              <span class="qp-cal">250 kcal</span>
+            </div>
+            <div class="qp-item" onclick="selectQuickFood(this)" data-cal="150" data-prot="30" data-carbs="2"
+              data-fats="2">
+              <span class="qp-emoji">💊</span>
+              <span class="qp-name">Whey Shake</span>
+              <span class="qp-cal">150 kcal</span>
+            </div>
+            <div class="qp-item" onclick="selectQuickFood(this)" data-cal="160" data-prot="6" data-carbs="30"
+              data-fats="2">
+              <span class="qp-emoji">🍞</span>
+              <span class="qp-name">Wheat Bread</span>
+              <span class="qp-cal">160 kcal</span>
+            </div>
+            <div class="qp-item" onclick="selectQuickFood(this)" data-cal="95" data-prot="0" data-carbs="25"
+              data-fats="0">
+              <span class="qp-emoji">🍎</span>
+              <span class="qp-name">Apple</span>
+              <span class="qp-cal">95 kcal</span>
+            </div>
+            <div class="qp-item" onclick="selectQuickFood(this)" data-cal="80" data-prot="5" data-carbs="11"
+              data-fats="1">
+              <span class="qp-emoji">🥦</span>
+              <span class="qp-name">Broccoli</span>
+              <span class="qp-cal">80 kcal</span>
+            </div>
+          </div>
+          <!-- Selected Quick Preview -->
+          <div class="qp-selected-preview" id="qpSelectedPreview" style="display:none">
+            <p class="qpsp-label">Selected:</p>
+            <div class="qpsp-macros" id="qpSelectedMacros"></div>
+          </div>
+        </div>
+
+        <button class="primary-btn full-width" id="saveMealBtn" onclick="saveMealEntry()">✓ Save Meal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Authentication Modal -->
+  <div class="auth-modal" id="authModal">
+    <div class="auth-overlay" onclick="closeAuthModal()"></div>
+    <div class="auth-container">
+      <div class="auth-header">
+        <h2 id="authTitle">Welcome to H²OS</h2>
+        <button class="auth-close" onclick="closeAuthModal()">×</button>
+      </div>
+      
+      <!-- Login Form -->
+      <div class="auth-form" id="loginForm">
+        <form onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required placeholder="Enter your password">
+          </div>
+          <button type="submit" class="auth-btn primary">Sign In</button>
+        </form>
+        <p class="auth-switch">
+          Don't have an account? 
+          <a href="#" onclick="switchToRegister()">Sign Up</a>
+        </p>
+      </div>
+      
+      <!-- Register Form -->
+      <div class="auth-form" id="registerForm" style="display: none;">
+        <form onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label for="registerEmail">Email</label>
+            <input type="email" id="registerEmail" required placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" required placeholder="Create a password (min 6 chars)">
+          </div>
+          <div class="form-group">
+            <label for="registerConfirmPassword">Confirm Password</label>
+            <input type="password" id="registerConfirmPassword" required placeholder="Confirm your password">
+          </div>
+          <button type="submit" class="auth-btn primary">Create Account</button>
+        </form>
+        <p class="auth-switch">
+          Already have an account? 
+          <a href="#" onclick="switchToLogin()">Sign In</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="api.js"></script>
+  <script src="auth.js"></script>
+  <script src="nutrition.js"></script>
+  <script src="habits.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
